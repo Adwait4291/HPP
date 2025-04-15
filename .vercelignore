@@ -1,0 +1,44 @@
+# .vercelignore
+
+# Git files
+.git/
+.gitignore
+
+# Data files (model is trained elsewhere)
+data/
+extracted_data/
+*.csv
+
+# Training script (not needed for prediction runtime)
+train.py
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Notebooks and analysis files
+analysis/
+*.ipynb
+
+# ZenML/MLflow artifacts (if still present)
+mlruns/
+config.yaml
+
+# Explanations / other non-essential code
+explanations/
+
+# Potentially the src folder IF all necessary logic from src
+# is implicitly included via imports in api/predict.py and installed dependencies.
+# Vercel's build process should handle including necessary imports,
+# but explicitly ignoring `src/` *might* sometimes help if it's large and not directly copied.
+# Test deployment WITH and WITHOUT the line below:
+# src/
+
+# Other artifacts
+model.joblib # <-- Add this ONLY IF you are loading the model from an external source (like S3) in predict.py instead of bundling it. If bundled, DO NOT add this line.
